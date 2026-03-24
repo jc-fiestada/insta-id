@@ -1,0 +1,9 @@
+client/node_modules/
+client/dist/
+client/.parcel-cache
+
+.env
+*.env
+
+server/bin/
+server/obj/
