@@ -1,0 +1,147 @@
+.form-page {
+  padding: var(--sp-16) var(--sp-6);
+  max-width: 900px;
+  margin: auto;
+}
+
+.form-switch {
+  display: flex;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-8);
+}
+
+.form-switch__btn {
+  flex: 1;
+  padding: var(--sp-3);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg-2);
+  cursor: pointer;
+}
+
+.form-switch__btn.active {
+  background: var(--clr-accent);
+  color: black;
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.form.active {
+  display: flex;
+}
+
+.form input {
+  padding: var(--sp-3);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg-2);
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--sp-4);
+}
+
+.template-card {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.template-card.active {
+  border-color: var(--clr-accent);
+}
+
+.template-preview {
+  width: 100%;
+  aspect-ratio: 60 / 92.6;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.template-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .form-page {
+    padding: var(--sp-10) var(--sp-4);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .template-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .form-page {
+    padding: var(--sp-12) var(--sp-4);
+  }
+
+  .form-switch {
+    gap: var(--sp-1);
+  }
+
+  .form-switch__btn {
+    flex: 1;
+    padding: var(--sp-2);
+    font-size: var(--fs-sm);
+  }
+
+  .form {
+    gap: var(--sp-3);
+  }
+
+  .form input {
+    padding: var(--sp-2);
+    font-size: var(--fs-base);
+  }
+
+  .template-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-3);
+  }
+
+  .template-preview {
+    aspect-ratio: 60 / 92.6;
+  }
+
+  .form .btn {
+    padding: var(--sp-3);
+    font-size: var(--fs-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .form-page {
+    padding: var(--sp-10) var(--sp-3);
+  }
+
+  .form-switch {
+    gap: var(--sp-1);
+  }
+
+  .form-switch__btn {
+    padding: var(--sp-2);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.05em;
+  }
+
+  .template-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  .form__label {
+    font-size: var(--fs-sm);
+    margin-top: var(--sp-2);
+  }
+}

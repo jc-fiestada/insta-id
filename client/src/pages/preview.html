@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your ID — InstaId</title>
+
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/specific/preview.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="main.html" class="header__logo">
+      <div class="header__logo-mark"><span>II</span></div>
+      <span class="header__logo-name">Insta<span>Id</span></span>
+    </a>
+
+    <nav class="header__nav">
+      <a href="main.html#how-it-works" class="header__nav-link">How It Works</a>
+      <a href="about.html" class="header__nav-link">About</a>
+      <a href="form.html" class="btn btn--primary btn--sm">Generate ID</a>
+    </nav>
+  </div>
+</header>
+
+<main class="preview-page">
+
+  <div class="preview-container">
+
+    <!-- TITLE -->
+    <div class="preview-header">
+      <h1>Your ID is Ready</h1>
+      <p class="preview-subtext">Preview and download your generated ID below</p>
+    </div>
+
+    <!-- PDF VIEWER -->
+    <div class="preview-viewer">
+      <!-- You will replace src dynamically -->
+      <iframe id="pdfViewer"></iframe>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="preview-actions">
+      <a id="downloadBtn" class="btn btn--primary btn--lg">Download PDF</a>
+      <a href="form.html" class="btn btn--secondary btn--lg">Generate Another</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__left">
+      <span class="footer__brand">Insta<span>Id</span></span>
+      <span class="footer__credit">
+        Created by <a href="https://github.com/jc-fiestada" target="_blank">JC</a>
+      </span>
+    </div>
+
+    <div class="footer__right">
+      <span class="footer__tag">Live &amp; Deployed</span>
+      <p class="footer__disclaimer">
+        No data is collected or stored. All information entered is used 
+        solely for ID generation and is not retained.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

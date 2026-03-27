@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "",
-    "build" : ""
+    "dev" : "parcel src/pages/main.html src/pages/form.html src/pages/about.html src/pages/preview.html",
+    "build" : "parcel src/pages/main.html src/pages/form.html src/pages/about.html src/pages/preview.html --dist-dir ../server/wwwroot"
   },
   "keywords": [],
   "author": "",

@@ -1,9 +1,13 @@
 client/node_modules/
 client/dist/
 client/.parcel-cache
+client/src/assets/
 
 .env
 *.env
 
 server/bin/
 server/obj/
+server/wwwroot/
+
+templates/

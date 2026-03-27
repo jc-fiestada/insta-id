@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — InstaId</title>
+  <meta name="description" content="About InstaId — an open, anonymous ID generation tool. No database, no accounts, no data stored." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/specific/about.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="main.html" class="header__logo">
+        <div class="header__logo-mark"><span>II</span></div>
+        <span class="header__logo-name">Insta<span>Id</span></span>
+      </a>
+
+      <nav class="header__nav">
+        <a href="main.html#how-it-works" class="header__nav-link">How It Works</a>
+        <a href="about.html" class="header__nav-link" aria-current="page">About</a>
+        <a href="form.html" class="btn btn--primary btn--sm">Generate ID</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- About Content ONLY -->
+    <section class="about-content">
+      <div class="about-content__inner">
+
+        <div class="about-content__left">
+          <span class="section-label">Info</span>
+
+          <h1 class="about-content__title">
+            About
+          </h1>
+
+          <div class="about-content__body">
+            <p>
+              This web app allows users to generate their own ID by simply entering their information. 
+              The generated ID can be downloaded directly or sent to the user’s Gmail.
+            </p>
+
+            <p>
+              The application does not use any SQL database, 
+              and no user data is stored at any point. 
+              All information is used only for generating the ID.
+            </p>
+
+            <p>
+              This project was built to showcase my programming skills and 
+              demonstrate my ability to deploy a fully functional 
+              web application online.
+            </p>
+
+            <p>
+              You can view the source code here:
+              <a href="https://github.com/jc-fiestada/insta-id" target="_blank" class="highlight-link">
+                InstaId Public Repository
+              </a>
+            </p>
+          </div>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/jc-fiestada"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-callout"
+          >
+            <div class="github-callout__text">
+              <span class="github-callout__label">GitHub</span>
+              <span class="github-callout__repo">github.com/jc-fiestada</span>
+            </div>
+            <span class="btn btn--outline btn--sm">View Profile ↗</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand">Insta<span>Id</span></span>
+        <span class="footer__credit">
+          Created by <a href="https://github.com/jc-fiestada" target="_blank">JC</a>
+        </span>
+      </div>
+
+      <div class="footer__right">
+        <span class="footer__tag">Live &amp; Deployed</span>
+        <p class="footer__disclaimer">
+          No data is collected or stored. All information entered is used 
+          solely for ID generation and is not retained.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script type="module" src="../scripts/pages/about.ts"></script>
+
+</body>
+</html>
