@@ -1,7 +1,3 @@
-// ============================================================
-// ui/toast.ts — Universal Toast Notification System
-// ============================================================
-
 export type ToastType = 'success' | 'error' | 'warning' | 'info';
 
 export interface ToastOptions {

@@ -10,4 +10,6 @@ server/bin/
 server/obj/
 server/wwwroot/
 
-templates/
+server/templates/ 
+
+server/libwkhtmltox.dll

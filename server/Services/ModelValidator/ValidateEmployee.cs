@@ -2,21 +2,23 @@ using InstaId.Models.Entity;
 using InstaId.Models.Dto;
 namespace InstaId.Services.ModelValidator;
 
-public class ValidateEmployee : ValidateBase <EmployeeDto, Employee>
+public class ValidateEmployee : ValidateBase <EntityDto, Employee>
 {
-    public override Employee Validate(EmployeeDto Entity)
+    public override Employee Validate(EntityDto Entity)
     {
         ValidateName(Entity.Name);
         ValidateGmail(Entity.Gmail);
-        ValidateInstitution(Entity.CompanyName, "Employee", "Company Name");
-        ValidateRole(Entity.Position, "Employee", "Position");
+        ValidateInstitution(Entity.Institute, "Employee", "Company Name");
+        ValidateRole(Entity.Role, "Employee", "Position");
+        ValidateSelectedTemplate(Entity.Id);
 
         return new Employee()
         {
             Name = Entity.Name!,
-            CompanyName = Entity.CompanyName!,
-            Position = Entity.Position!,
+            CompanyName = Entity.Institute!,
+            Position = Entity.Role!,
             Gmail = Entity.Gmail!,
+            Id = (int)Entity.Id!
         };
     }
 }
