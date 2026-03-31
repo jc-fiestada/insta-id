@@ -1,6 +1,5 @@
 using System.Text.Json;
 
-
 using InstaId.Services.ModelValidator;
 using InstaId.Services.Service;
 using InstaId.Models.Dto;
@@ -10,7 +9,7 @@ namespace InstaId.ResponseHandler;
 
 public class Response
 {
-    public async Task<IResult> GenerateId(HttpRequest request, PlaywrightServices playwright)
+    public async Task<IResult> GenerateId(HttpRequest request, PlaywrightServices playwright, Tools tools)
     {
         IFormCollection form = await request.ReadFormAsync();
 
@@ -37,18 +36,48 @@ public class Response
             if (entityDto.EntityType == "employee") entity = new ValidateEmployee().Validate(entityDto);
         } catch (FormatException ex)
         {
+            Console.WriteLine($"ERROR: {ex}");
             return Results.UnprocessableEntity(ex.Message);
-        } catch (Exception)
+        } catch (Exception ex)
         {
-            Console.WriteLine("----- Student Deserialization Failed -----");
+            Console.WriteLine($"ERROR: {ex}");
             return Results.InternalServerError("Failed to process user information");
         }
 
         IFormFile img = form.Files["img"]!;
 
-        byte[] imgBytes = await playwright.GeneratePdfBytes(entity, img);
+        byte[] pdfBytes;
 
-        return Results.File(imgBytes, "application/pdf", "id-card.pdf");
+        try
+        {
+            pdfBytes = await playwright.GeneratePdfBytes(entity, img);
+        } catch (Exception ex)
+        {
+            Console.WriteLine($"ERROR: {ex}");
+            return Results.InternalServerError($"Failed to generate PDF");
+        }
+
+        GeneratedIdResponse response = new GeneratedIdResponse()
+        {
+            PdfStatusCode = 200,
+            PdfBase64 = Convert.ToBase64String(pdfBytes),
+            GmailStatusCode = 200,
+            Message = "Id has been successfully sent through Gmail"
+        };
+
+        try
+        {
+            await tools.SendIdViaGmail(entity, pdfBytes);
+        } catch (Exception ex)
+        {
+            Console.WriteLine($"ERROR: {ex}");
+            response.Message = "Failed to send Id through Gmail";
+            response.GmailStatusCode = 500;
+            return Results.Ok(response);
+        }
+        
+
+        return Results.Ok(response);
     }
 
     

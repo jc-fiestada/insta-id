@@ -14,6 +14,7 @@ Env.Load(envFilepath);
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<PlaywrightServices>();
+builder.Services.AddScoped<Tools>();
 builder.Services.AddScoped<ValidateEmployee>();
 builder.Services.AddScoped<ValidateStudent>();
 builder.Services.AddScoped<Response>();
@@ -24,21 +25,9 @@ await PlaywrightServices.InitializeBrowser();
 
 app.UseStaticFiles();
 
-app.MapPost("/student/pdf-id", () =>
+app.MapPost("/test/pdf", (HttpRequest request, ValidateStudent validator, PlaywrightServices playwright, Response response, Tools tools) =>
 {
-    
-});
-
-app.MapPost("/employee/pdf-id", () =>
-{
-    
-});
-
-
-
-app.MapPost("/test/pdf", (HttpRequest request, ValidateStudent validator, PlaywrightServices playwright, Response response) =>
-{
-    return response.GenerateId(request, playwright);
+    return response.GenerateId(request, playwright, tools);
 });
 
 app.Run();

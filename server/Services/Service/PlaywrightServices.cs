@@ -84,7 +84,7 @@ public class PlaywrightServices
         } catch (Exception ex)
         {
             Console.WriteLine(ex);
-            throw new InvalidOperationException($"----- Failed to generate PDF -----");
+            throw new Exception($"----- Failed to generate PDF -----");
         } finally
         {
             _pdfSemaphore.Release();
