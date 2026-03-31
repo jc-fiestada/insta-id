@@ -1,9 +1,9 @@
 export interface IdResponse{
-    pdf
+    pdftatusCode: number,
+    pdfBase64: string,
+    gmailStatusCode: number,
+    message: string
 }
 
-
-public required int PdfStatusCode {get; set;}
-    public required string PdfBase64 {get; set;}
-    public required int GmailStatusCode {get; set;}
-    public required string Message {get; set;}
+// Forgot to save the script in my fifth commit while copying the C# model to create the TypeScript interface
+// The response DTO is in the script as reference, my bad thats definitely confusing without context
