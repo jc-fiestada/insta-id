@@ -40,29 +40,29 @@
     <!-- STUDENT FORM -->
     <form class="form active" id="student-form">
 
-      <input type="text" placeholder="Full Name" name="name" required />
-      <input type="text" placeholder="Course" name="course" required />
-      <input type="email" placeholder="Email" name="email" required />
-      <input type="text" placeholder="School" name="school" required />
-      <input type="file" accept="image/*" name="image" />
+      <input type="text" placeholder="Full Name" name="name" id="student-name" />
+      <input type="text" placeholder="Course" name="course" id="student-course" />
+      <input type="email" placeholder="Email" name="email" id="student-email" />
+      <input type="text" placeholder="School" name="school" id="student-school" />
+      <input type="file" accept="image/*" name="image" id="student-image" />
 
       <h3 class="form__label">Select Template</h3>
 
       <div class="template-grid">
 
-        <div class="template-card active" data-template="t1">
+        <div class="template-card student active" data-id="1">
           <div class="template-preview">
             <img src="../assets/id-previews/S-t1.jpg" alt="Student Template 1">
           </div>
         </div>
 
-        <div class="template-card" data-template="t2">
+        <div class="template-card student" data-id="2">
           <div class="template-preview">
             <img src="../assets/id-previews/S-t2.jpg" alt="Student Template 2">
           </div>
         </div>
 
-        <div class="template-card" data-template="t3">
+        <div class="template-card student" data-id="3">
           <div class="template-preview">
             <img src="../assets/id-previews/S-t3.jpg" alt="Student Template 3">
           </div>
@@ -70,36 +70,36 @@
 
       </div>
 
-      <button class="btn btn--primary btn--lg">Generate</button>
+      <button class="btn btn--primary btn--lg form-btn">Generate</button>
 
     </form>
 
     <!-- EMPLOYEE FORM -->
     <form class="form" id="employee-form">
 
-      <input type="text" placeholder="Full Name" name="name" required />
-      <input type="email" placeholder="Email" name="email" required />
-      <input type="text" placeholder="Company" name="company" required />
-      <input type="text" placeholder="Position" name="position" required />
-      <input type="file" accept="image/*" name="image" />
+      <input type="text" placeholder="Full Name" name="name" id="employee-name"/>
+      <input type="email" placeholder="Email" name="email" id="employee-email"/>
+      <input type="text" placeholder="Company" name="company" id="employee-company"/>
+      <input type="text" placeholder="Position" name="position" id="employee-position"/>
+      <input type="file" accept="image/*" name="image" id="employee-image"/>
 
       <h3 class="form__label">Select Template</h3>
 
       <div class="template-grid">
 
-        <div class="template-card active" data-template="t1">
+        <div class="template-card employee active" data-id="1">
           <div class="template-preview">
             <img src="../assets/id-previews/E-t1.jpg" alt="Employee Template 1">
           </div>
         </div>
 
-        <div class="template-card" data-template="t2">
+        <div class="template-card employee" data-id="2">
           <div class="template-preview">
             <img src="../assets/id-previews/E-t2.jpg" alt="Employee Template 2">
           </div>
         </div>
 
-        <div class="template-card" data-template="t3">
+        <div class="template-card employee" data-id="3">
           <div class="template-preview">
             <img src="../assets/id-previews/E-t3.jpg" alt="Employee Template 3">
           </div>
@@ -107,7 +107,7 @@
 
       </div>
 
-      <button class="btn btn--primary btn--lg">Generate</button>
+      <button class="btn btn--primary btn--lg form-btn">Generate</button>
 
     </form>
 

@@ -11,6 +11,7 @@ public class Response
 {
     public async Task<IResult> GenerateId(HttpRequest request, PlaywrightServices playwright, Tools tools)
     {
+        Console.WriteLine("---- endpoint reached ----");
         IFormCollection form = await request.ReadFormAsync();
 
         if (!form.ContainsKey("entity")) return Results.BadRequest("Client data is missing from the request");

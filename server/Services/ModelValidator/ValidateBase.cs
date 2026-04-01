@@ -18,6 +18,8 @@ public abstract class ValidateBase<TInput, TOutput> : IValidate<TInput, TOutput>
     {
         if (string.IsNullOrWhiteSpace(gmail)) 
             throw new FormatException("Gmail must not be empty");
+        if (gmail.Length > 40)
+            throw new FormatException("Gmail must not exceed more than 40 characters");
         if (!Regex.IsMatch(gmail, @"^[^\s@]+@[^\s@]+\.[^\s@]+$"))
             throw new FormatException("Invalid Gmail Format");
     }

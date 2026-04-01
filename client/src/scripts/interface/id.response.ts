@@ -1,5 +1,5 @@
 export interface IdResponse{
-    pdftatusCode: number,
+    pdfStatusCode: number,
     pdfBase64: string,
     gmailStatusCode: number,
     message: string

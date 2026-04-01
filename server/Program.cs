@@ -25,7 +25,9 @@ await PlaywrightServices.InitializeBrowser();
 
 app.UseStaticFiles();
 
-app.MapPost("/test/pdf", (HttpRequest request, ValidateStudent validator, PlaywrightServices playwright, Response response, Tools tools) =>
+
+
+app.MapPost("/generate-id", (HttpRequest request, ValidateStudent validator, PlaywrightServices playwright, Response response, Tools tools) =>
 {
     return response.GenerateId(request, playwright, tools);
 });

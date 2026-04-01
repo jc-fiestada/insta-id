@@ -4,14 +4,14 @@ export interface ToastOptions {
   type?: ToastType;
   title?: string;
   message: string;
-  duration?: number; // ms, 0 = persistent
+  duration?: number;
 }
 
 const ICONS: Record<ToastType, string> = {
   success: '✓',
   error:   '✕',
   warning: '⚠',
-  info:    'ℹ',
+  info:    'i',
 };
 
 const TITLES: Record<ToastType, string> = {
