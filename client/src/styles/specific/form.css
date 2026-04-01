@@ -37,6 +37,11 @@
   padding: var(--sp-3);
   border: 1px solid var(--clr-border);
   background: var(--clr-bg-2);
+  color: var(--clr-white);
+}
+
+.form input::placeholder {
+  color: var(--clr-text-muted);
 }
 
 .template-grid {

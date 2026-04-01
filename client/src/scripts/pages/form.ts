@@ -1,8 +1,11 @@
 import { ResponseHandler } from "../response-handler/response";
 import { showToast } from "../ui/toast";
 import { IdResponse } from "../interface/id.response";
+import { InputValidator } from "../tools/input.validator";
 
-const ResHandler : ResponseHandler = new ResponseHandler(); 
+// Handlers/Helpers
+const resHandler : ResponseHandler = new ResponseHandler(); 
+const Validator : InputValidator = new InputValidator();
 
 // Switch Forms
 const buttons = document.querySelectorAll(".form-switch__btn");
@@ -26,26 +29,31 @@ studentForm.addEventListener("submit", async (e) => {
     const studentSchool = document.getElementById("student-school") as HTMLInputElement;
     const studentImage = document.getElementById("student-image") as HTMLInputElement;
 
-    if (studentImage.files === null || studentImage.files.length === 0){
-        showToast({
-            type: "warning",
-            message : "Image must not be empty",
-            duration : 3000
-        });
-        formSubmitBtn.forEach(btn => btn.disabled = false);
-        return;
-    }
-
     const selectedTemplate = document.querySelector(".template-card.student.active") as HTMLDivElement;
     const studentId = parseInt(selectedTemplate.dataset.id ?? "2");
+
+    // validate user input first
+    try {
+        Validator.ValidateStudent(studentName.value, studentEmail.value, studentSchool.value, studentCourse.value, studentImage, studentId);
+    } catch (error){
+        if (error instanceof Error){
+            showToast({
+                type: "warning",
+                message : error.message,
+                duration : 3000
+            });
+            formSubmitBtn.forEach(btn => btn.disabled = false);
+            return;
+        }
+    }
 
     let response : IdResponse;
 
     try {
-        response = await ResHandler.IdGeneratorResponse("student", studentName.value, studentEmail.value, studentCourse.value, 
-        studentSchool.value, studentId, studentImage.files[0]!);
+        response = await resHandler.IdGeneratorResponse("student", studentName.value, studentEmail.value, studentCourse.value, 
+        studentSchool.value, studentId, studentImage.files![0]!);
     } catch (error){
-        console.log(error)
+        if (error instanceof Error) console.log(error.message);
         formSubmitBtn.forEach(btn => btn.disabled = false);
         return;
     }
@@ -66,23 +74,33 @@ employeeForm.addEventListener("submit", async (e) => {
     const employeeCompany = document.getElementById("employee-company") as HTMLInputElement;
     const employeeImage = document.getElementById("employee-image") as HTMLInputElement;
 
-    if (employeeImage.files === null || employeeImage.files.length === 0){
-        showToast({
-            type: "warning",
-            message : "Image must not be empty",
-            duration : 3000
-        });
-        formSubmitBtn.forEach(btn => btn.disabled = false);
-        return;
-    }
-
     const selectedTemplate = document.querySelector(".template-card.employee.active") as HTMLDivElement;
     const employeeId = parseInt(selectedTemplate.dataset.id ?? "2");
+
+    try {
+        Validator.ValidateEmployee(employeeName.value, employeeEmail.value, employeeCompany.value, employeePosition.value, employeeImage, employeeId);
+    } catch (error){
+        if (error instanceof Error){
+            showToast({
+                type: "warning",
+                message : error.message,
+                duration : 3000
+            });
+            formSubmitBtn.forEach(btn => btn.disabled = false);
+            return;
+        }
+    }
+
     let response : IdResponse; 
 
     try{
-        response = await ResHandler.IdGeneratorResponse("employee", employeeName.value, employeeEmail.value, 
-            employeePosition.value, employeeCompany.value, employeeId, employeeImage.files[0]!); 
+        showToast({
+            type: "success",
+            message : "Your information is being processed. Please wait.",
+            duration : 3000
+        });
+        response = await resHandler.IdGeneratorResponse("employee", employeeName.value, employeeEmail.value, 
+            employeePosition.value, employeeCompany.value, employeeId, employeeImage.files![0]!); 
     } catch (error){
         console.log(error)
         formSubmitBtn.forEach(btn => btn.disabled = false);
