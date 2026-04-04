@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee-Themed ID Card</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@page {
+    size: 60mm 92.6mm;
+    margin: 0;
+}
+
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#e0d6cc; /* coffee cream background */
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* coffee-card - main container */
+.coffee-card {
+    width:60mm;
+    height:92.6mm;
+    background:#f7f1e7; /* cream card */
+    border:0.6mm solid #6b4c3b; /* dark coffee border */
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    position:relative;
+}
+
+/* ===== TOP DESIGN ===== */
+/* coffee-roof - top curved shape */
+.coffee-roof {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:30%;
+    background:#a67c52; /* medium coffee */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 85%, 0 70%);
+    z-index:1;
+}
+
+.coffee-roof::after {
+    content:"";
+    position:absolute;
+    width:40mm;
+    height:40mm;
+    background:#c49e76; /* lighter coffee accent */
+    border-radius:50%;
+    top:-10mm;
+    right:-15mm;
+}
+
+/* coffee-brand - company text area */
+.coffee-brand {
+    position:absolute;
+    top:3mm;
+    left:4mm;
+    color:#fff;
+    z-index:3;
+}
+
+.coffee-brand-name {
+    font-size:3.2mm;
+    font-weight:bold;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.coffee-brand-sub {
+    font-size:2mm;
+    opacity:0.85;
+}
+
+/* coffee-profile - main content area - moved up significantly */
+.coffee-profile {
+    margin-top:18mm; /* INCREASED REDUCTION: from 24mm to 18mm - email now has space */
+    padding:0 4mm;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.5mm; /* slightly reduced gap for better spacing */
+    position:relative;
+    z-index:5;
+}
+
+/* coffee-avatar - photo container - positioned to overlap shape but not be covered */
+.coffee-avatar {
+    position:relative;
+    z-index:10;
+    margin-top:-3mm; /* slight negative margin to overlap shape gracefully */
+}
+
+.coffee-avatar img {
+    width:26mm;
+    height:26mm;
+    border-radius:50%;
+    border:1.5mm solid #6b4c3b;
+    object-fit:cover;
+    background:#f7f1e7;
+    display:block;
+}
+
+/* coffee-employee-name */
+.coffee-employee-name {
+    font-size:4.2mm;
+    font-weight:bold;
+    color:#5a3e2b;
+    text-align:center;
+    overflow-wrap:anywhere;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    margin-top:0.5mm;
+}
+
+/* coffee-job-title */
+.coffee-job-title {
+    font-size:3mm;
+    color:#a67c52;
+    text-align:center;
+}
+
+/* coffee-details - info section */
+.coffee-details {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:1.8mm; /* slightly reduced gap */
+    margin-top:1mm;
+    font-size:2.6mm;
+    color:#5a3e2b;
+}
+
+/* coffee-detail-card - each info row */
+.coffee-detail-card {
+    display:flex;
+    flex-direction:column;
+    background:#d8c4b6; /* coffee light accent */
+    border-left:2px solid #6b4c3b;
+    padding:1mm 1.5mm;
+    border-radius:1mm;
+}
+
+.coffee-detail-label {
+    font-weight:bold;
+    font-size:1.8mm;
+    opacity:0.9;
+}
+
+.coffee-detail-value {
+    margin-top:0.3mm;
+    font-size:2.4mm;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+</style>
+</head>
+
+<body>
+<div class="coffee-card">
+
+    <div class="coffee-roof"></div>
+
+    <div class="coffee-brand">
+        <div class="coffee-brand-name">{{institute}}</div>
+        <div class="coffee-brand-sub">{{typeLabel}} ID</div>
+    </div>
+
+    <div class="coffee-profile">
+        <div class="coffee-avatar">
+            <img src="{{img}}">
+        </div>
+
+        <div class="coffee-employee-name">{{name}}</div>
+        <div class="coffee-job-title"> DETAILS </div>
+
+        <div class="coffee-details">
+            <div class="coffee-detail-card">
+                <div class="coffee-detail-label">{{roleLabel}}</div>
+                <div class="coffee-detail-value">{{role}}</div>
+            </div>
+            <div class="coffee-detail-card">
+                <div class="coffee-detail-label">EMAIL</div>
+                <div class="coffee-detail-value">{{gmail}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

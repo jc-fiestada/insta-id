@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate ID — InstaId</title>
+
+  <link rel="stylesheet" href="/main.25f8d89e.css">
+  <link rel="stylesheet" href="/main.ac8f3ffa.css">
+  <link rel="stylesheet" href="/form.9c2dd0dc.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="/main.html" class="header__logo">
+      <div class="header__logo-mark"><span>II</span></div>
+      <span class="header__logo-name">Insta<span>Id</span></span>
+    </a>
+
+    <nav class="header__nav">
+      <a href="/main.html#how-it-works" class="header__nav-link">How It Works</a>
+      <a href="/about.html" class="header__nav-link">About</a>
+      <a href="/form.html" class="btn btn--primary btn--sm">Generate ID</a>
+    </nav>
+  </div>
+</header>
+
+<main class="form-page">
+
+  <!-- SWITCH -->
+  <div class="form-switch">
+    <button class="form-switch__btn active" data-target="student">Student</button>
+    <button class="form-switch__btn" data-target="employee">Employee</button>
+  </div>
+
+  <!-- FORM WRAPPER -->
+  <div class="form-container">
+
+    <!-- STUDENT FORM -->
+    <form class="form active" id="student-form">
+
+      <input type="text" placeholder="Full Name" name="name" id="student-name">
+      <input type="text" placeholder="Course" name="course" id="student-course">
+      <input type="email" placeholder="Email" name="email" id="student-email">
+      <input type="text" placeholder="School" name="school" id="student-school">
+      <input type="file" accept="image/*" name="image" id="student-image">
+
+      <h3 class="form__label">Select Template</h3>
+
+      <div class="template-grid">
+
+        <div class="template-card student active" data-id="1">
+          <div class="template-preview">
+            <img src="/S-t1.a67df169.jpg" alt="Student Template 1">
+          </div>
+        </div>
+
+        <div class="template-card student" data-id="2">
+          <div class="template-preview">
+            <img src="/S-t2.091a49ad.jpg" alt="Student Template 2">
+          </div>
+        </div>
+
+        <div class="template-card student" data-id="3">
+          <div class="template-preview">
+            <img src="/S-t3.7bb03a31.jpg" alt="Student Template 3">
+          </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn--primary btn--lg form-btn">Generate</button>
+
+    </form>
+
+    <!-- EMPLOYEE FORM -->
+    <form class="form" id="employee-form">
+
+      <input type="text" placeholder="Full Name" name="name" id="employee-name">
+      <input type="text" placeholder="Position" name="position" id="employee-position">
+      <input type="email" placeholder="Email" name="email" id="employee-email">
+      <input type="text" placeholder="Company" name="company" id="employee-company">
+      <input type="file" accept="image/*" name="image" id="employee-image">
+
+      <h3 class="form__label">Select Template</h3>
+
+      <div class="template-grid">
+
+        <div class="template-card employee active" data-id="1">
+          <div class="template-preview">
+            <img src="/E-t1.6b67acbd.jpg" alt="Employee Template 1">
+          </div>
+        </div>
+
+        <div class="template-card employee" data-id="2">
+          <div class="template-preview">
+            <img src="/E-t2.674d8a89.jpg" alt="Employee Template 2">
+          </div>
+        </div>
+
+        <div class="template-card employee" data-id="3">
+          <div class="template-preview">
+            <img src="/E-t3.6b9b2b01.jpg" alt="Employee Template 3">
+          </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn--primary btn--lg form-btn">Generate</button>
+
+    </form>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand">Insta<span>Id</span></span>
+        <span class="footer__credit">
+          Created by <a href="https://github.com/jc-fiestada" target="_blank">JC</a>
+        </span>
+      </div>
+
+      <div class="footer__right">
+        <span class="footer__tag">Live &amp; Deployed</span>
+        <p class="footer__disclaimer">
+          No data is collected or stored. All information entered is used 
+          solely for ID generation and is not retained.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script type="module" src="/form.3763c02c.js"></script>
+
+
+</body></html>

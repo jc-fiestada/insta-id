@@ -9,9 +9,8 @@ namespace InstaId.ResponseHandler;
 
 public class Response
 {
-    public async Task<IResult> GenerateId(HttpRequest request, PlaywrightServices playwright, Tools tools)
+    public async Task<IResult> GenerateId(HttpRequest request, PdfShark pdfShark, Tools tools)
     {
-        Console.WriteLine("---- endpoint reached ----");
         IFormCollection form = await request.ReadFormAsync();
 
         if (!form.ContainsKey("entity")) return Results.BadRequest("Client data is missing from the request");
@@ -51,7 +50,7 @@ public class Response
 
         try
         {
-            pdfBytes = await playwright.GeneratePdfBytes(entity, img);
+            pdfBytes = await pdfShark.GeneratePdf(entity, img, tools);
         } catch (Exception ex)
         {
             Console.WriteLine($"ERROR: {ex}");

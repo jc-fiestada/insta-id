@@ -8,8 +8,3 @@ client/src/assets/
 
 server/bin/
 server/obj/
-server/wwwroot/
-
-server/templates/ 
-
-server/libwkhtmltox.dll

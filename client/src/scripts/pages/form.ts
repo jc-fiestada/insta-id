@@ -18,6 +18,15 @@ const employeeForm = document.getElementById("employee-form") as HTMLFormElement
 // Form Btns
 const formSubmitBtn = document.querySelectorAll(".form-btn") as NodeListOf<HTMLButtonElement>;
 
+document.addEventListener("DOMContentLoaded", () => {
+    showToast({
+        type: "info",
+        message : `Please note: The server validates email format but does not verify if the email address actually exists 
+                   or is correct. Ensure you provide a valid email address.`,
+        duration : 7000
+    });
+}); 
+
 studentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -50,6 +59,11 @@ studentForm.addEventListener("submit", async (e) => {
     let response : IdResponse;
 
     try {
+        showToast({
+            type: "success",
+            message : "Your information is being processed. Please wait.",
+            duration : 3000
+        });
         response = await resHandler.IdGeneratorResponse("student", studentName.value, studentEmail.value, studentCourse.value, 
         studentSchool.value, studentId, studentImage.files![0]!);
     } catch (error){

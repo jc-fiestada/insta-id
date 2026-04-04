@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Styled ID</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+@page {
+    size: 60mm 92.6mm;
+    margin: 0;
+}
+
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ccc;
+}
+
+.id-card {
+    width:60mm;
+    height:92.6mm;
+    border-radius:3mm;
+    overflow:hidden;
+    position:relative;
+    background:#ffffff;
+    border:0.4mm solid #222;
+}
+
+/* Background shapes */
+.id-card::before {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:40%;
+    background:linear-gradient(135deg,#1f3a5f,#4a90e2);
+    top:0;
+    z-index: 0; /* behind content */
+}
+
+.id-card::after {
+    content:"";
+    position:absolute;
+    width:80mm;
+    height:80mm;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-30mm;
+    right:-20mm;
+    z-index: 0; /* behind content */
+}
+
+/* Header */
+.header {
+    position:relative;
+    color:white;
+    text-align:center;
+    padding-top:4mm;
+    font-size:3.8mm;
+    font-weight:600;
+    z-index:1; /* above background */
+}
+
+/* Photo */
+.photo {
+    position:relative;
+    display:flex;
+    justify-content:center;
+    margin-top:6mm;
+    z-index:1; /* above background */
+}
+
+.photo img {
+    width:26mm;
+    height:26mm;
+    border-radius:50%;
+    border:1mm solid white;
+    object-fit:cover;
+}
+
+/* Content */
+.content {
+    position:relative;
+    margin-top:3mm;
+    padding:0 4mm 10mm; 
+    display:flex;
+    flex-direction:column;
+    gap:2.5mm;
+    z-index:1; /* above background */
+}
+
+/* Name */
+.name {
+    text-align:center;
+    font-size:4.2mm;
+    font-weight:bold;
+    color:#222;
+}
+
+/* Info box */
+.info-box {
+    background:#f7f9fc;
+    border-radius:1.5mm;
+    padding:2.5mm;
+    border:0.3mm solid #dbe3ef;
+}
+
+/* Rows */
+.row {
+    margin-bottom:1.5mm;
+}
+
+.label {
+    font-size:2.5mm;
+    color:#6b7a90;
+}
+
+.value {
+    font-size:3.2mm;
+    font-weight:600;
+    color:#222;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.email {
+    word-break:break-all;
+    white-space:normal;
+}
+
+/* Footer */
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:#1f3a5f;
+    color:white;
+    text-align:center;
+    font-size:2.8mm;
+    padding:2mm;
+    z-index:1; /* above background */
+}
+</style>
+</head>
+
+<body>
+
+<div class="id-card">
+
+    <div class="header">
+        {{institute}}
+    </div>
+
+    <div class="photo">
+         <img src="{{img}}">
+    </div>
+
+    <div class="content">
+
+        <div class="name">
+            {{name}}
+        </div>
+
+        <div class="info-box">
+
+            <div class="row">
+                <div class="label">{{instituteLabel}}</div>
+                <div class="value">{{role}}</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Email</div>
+                <div class="value email">
+                    {{gmail}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        {{institute}}
+    </div>
+
+</div>
+
+</body>
+</html>
