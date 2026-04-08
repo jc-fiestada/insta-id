@@ -35,7 +35,6 @@ body {
     border:0.4mm solid #222;
 }
 
-/* Background shapes */
 .id-card::before {
     content:"";
     position:absolute;
@@ -43,7 +42,7 @@ body {
     height:40%;
     background:linear-gradient(135deg,#1f3a5f,#4a90e2);
     top:0;
-    z-index: 0; /* behind content */
+    z-index: 0;
 }
 
 .id-card::after {
@@ -55,10 +54,9 @@ body {
     border-radius:50%;
     top:-30mm;
     right:-20mm;
-    z-index: 0; /* behind content */
+    z-index: 0;
 }
 
-/* Header */
 .header {
     position:relative;
     color:white;
@@ -66,16 +64,15 @@ body {
     padding-top:4mm;
     font-size:3.8mm;
     font-weight:600;
-    z-index:1; /* above background */
+    z-index:1; 
 }
 
-/* Photo */
 .photo {
     position:relative;
     display:flex;
     justify-content:center;
     margin-top:6mm;
-    z-index:1; /* above background */
+    z-index:1;
 }
 
 .photo img {
@@ -86,7 +83,6 @@ body {
     object-fit:cover;
 }
 
-/* Content */
 .content {
     position:relative;
     margin-top:3mm;
@@ -94,10 +90,9 @@ body {
     display:flex;
     flex-direction:column;
     gap:2.5mm;
-    z-index:1; /* above background */
+    z-index:1;
 }
 
-/* Name */
 .name {
     text-align:center;
     font-size:4.2mm;
@@ -105,7 +100,6 @@ body {
     color:#222;
 }
 
-/* Info box */
 .info-box {
     background:#f7f9fc;
     border-radius:1.5mm;
@@ -113,7 +107,6 @@ body {
     border:0.3mm solid #dbe3ef;
 }
 
-/* Rows */
 .row {
     margin-bottom:1.5mm;
 }
@@ -137,7 +130,6 @@ body {
     white-space:normal;
 }
 
-/* Footer */
 .footer {
     position:absolute;
     bottom:0;
@@ -147,7 +139,7 @@ body {
     text-align:center;
     font-size:2.8mm;
     padding:2mm;
-    z-index:1; /* above background */
+    z-index:1; 
 }
 </style>
 </head>
@@ -196,3 +188,6 @@ body {
 
 </body>
 </html>
+
+<!-- HTML and CSS were not written by me. I only connected them together via CSS and TypeScript -->
+<!-- And configured it based on what the webapp should do. -->

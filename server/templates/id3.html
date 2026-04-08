@@ -34,7 +34,6 @@ body {
     border:0.4mm solid #222;
 }
 
-/* ===== TOP DESIGN ===== */
 .top-design {
     position:absolute;
     top:-1px;
@@ -56,12 +55,11 @@ body {
     transform:rotate(45deg);
 }
 
-/* ===== COMPANY ===== */
 .company {
     position:absolute;
     top:6mm;
     left:5mm;
-    right:5mm; /* prevent overflow */
+    right:5mm;
     color:#fff;
 }
 
@@ -79,7 +77,6 @@ body {
     opacity:0.7;
 }
 
-/* ✅ EMAIL MOVED HERE */
 .company-email {
     margin-top:1mm;
     font-size:2mm;
@@ -94,7 +91,6 @@ body {
     overflow:hidden;
 }
 
-/* ===== PHOTO ===== */
 .photo {
     position:absolute;
     top:28mm;
@@ -110,7 +106,6 @@ body {
     object-fit:cover;
 }
 
-/* ===== CONTENT ===== */
 .content {
     position:absolute;
     top:58mm;
@@ -119,7 +114,6 @@ body {
     padding:0 4mm;
 }
 
-/* NAME */
 .name {
     font-size:4.5mm;
     font-weight:bold;
@@ -128,14 +122,12 @@ body {
     overflow-wrap:anywhere;
 }
 
-/* ROLE */
 .role {
     font-size:3mm;
     color:#ff7a18;
     margin-top:1mm;
 }
 
-/* REMOVE email from here (info now optional) */
 .info {
     margin-top:4mm;
     font-size:2.8mm;
@@ -143,7 +135,6 @@ body {
     line-height:1.6;
 }
 
-/* ===== BOTTOM ACCENT ===== */
 .bottom-accent {
     position:absolute;
     bottom:-1px;
@@ -166,7 +157,6 @@ body {
         <div class="company-name">{{institute}}</div>
         <div class="company-sub">{{instituteLabel}} ID</div>
 
-        <!-- ✅ EMAIL NOW SAFE HERE -->
         <div class="company-email">
             {{gmail}}
         </div>
@@ -189,3 +179,6 @@ body {
 
 </body>
 </html>
+
+<!-- HTML and CSS were not written by me. I only connected them together via CSS and TypeScript -->
+<!-- And configured it based on what the webapp should do. -->
