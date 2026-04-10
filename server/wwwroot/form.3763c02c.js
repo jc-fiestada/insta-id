@@ -731,8 +731,8 @@ const formSubmitBtn = document.querySelectorAll(".form-btn");
 document.addEventListener("DOMContentLoaded", ()=>{
     (0, _toast.showToast)({
         type: "info",
-        message: `Please note: The server validates email format but does not verify if the email address actually exists 
-                   or is correct. Ensure you provide a valid email address.`,
+        message: `Please note that PDF generation takes time. After submitting 
+        please wait before being redirected to the preview page.`,
         duration: 7000
     });
 });
@@ -765,7 +765,7 @@ studentForm.addEventListener("submit", async (e)=>{
         (0, _toast.showToast)({
             type: "success",
             message: "Your information is being processed. Please wait.",
-            duration: 3000
+            duration: 10000
         });
         response = await resHandler.IdGeneratorResponse("student", studentName.value, studentEmail.value, studentCourse.value, studentSchool.value, studentId, studentImage.files[0]);
     } catch (error) {

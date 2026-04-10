@@ -2,7 +2,6 @@ using System.Text;
 using System.Text.Json;
 
 using InstaId.Models.Entity;
-using InstaId.Services.Service;
 
 namespace InstaId.Services.Service;
 
@@ -66,7 +65,7 @@ public class PdfShark
             using HttpResponseMessage response = await client.PostAsync(apiUrl, content);
 
             if (!response.IsSuccessStatusCode)
-                throw new Exception("");
+                throw new Exception("Failed to generate PDF.");
 
             pdfBytes = await response.Content.ReadAsByteArrayAsync();
         } catch (Exception ex)

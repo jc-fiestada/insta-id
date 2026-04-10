@@ -27,18 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         link.click();
     });
 
-    if (data.gmailStatusCode !== 200){
-        showToast({
-            type: "error",
-            message : data.message,
-            duration : 3000
-        });
-        return;
-    }
-
     showToast({
         type: "success",
-        message : "Id has been successfully sent via Gmail",
+        message : "Id has been successfully generated",
         duration : 3000
     });
 });

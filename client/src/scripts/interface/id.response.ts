@@ -1,7 +1,6 @@
 export interface IdResponse{
     pdfStatusCode: number,
     pdfBase64: string,
-    gmailStatusCode: number,
     message: string
 }
 

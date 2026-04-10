@@ -735,17 +735,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         link.download = "id-card.pdf";
         link.click();
     });
-    if (data.gmailStatusCode !== 200) {
-        (0, _toast.showToast)({
-            type: "error",
-            message: data.message,
-            duration: 3000
-        });
-        return;
-    }
     (0, _toast.showToast)({
         type: "success",
-        message: "Id has been successfully sent via Gmail",
+        message: "Id has been successfully generated",
         duration: 3000
     });
 });

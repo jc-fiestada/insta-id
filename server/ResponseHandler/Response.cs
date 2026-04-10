@@ -61,24 +61,9 @@ public class Response
         {
             PdfStatusCode = 200,
             PdfBase64 = Convert.ToBase64String(pdfBytes),
-            GmailStatusCode = 200,
-            Message = "Id has been successfully sent through Gmail"
+            Message = "Id has been successfully generated"
         };
-
-        try
-        {
-            await tools.SendIdViaGmail(entity, pdfBytes);
-        } catch (Exception ex)
-        {
-            Console.WriteLine($"ERROR: {ex}");
-            response.Message = "Failed to send Id through Gmail";
-            response.GmailStatusCode = 500;
-            return Results.Ok(response);
-        }
-        
 
         return Results.Ok(response);
     }
-
-    
 }
