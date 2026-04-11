@@ -4,14 +4,18 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "parcel src/pages/main.html src/pages/form.html src/pages/about.html src/pages/preview.html",
-    "build" : "parcel src/pages/main.html src/pages/form.html src/pages/about.html src/pages/preview.html --dist-dir ../server/wwwroot"
+    "dev": "parcel src/pages/main.html src/pages/form.html src/pages/about.html src/pages/preview.html",
+    "build": "parcel src/pages/main.html src/pages/form.html src/pages/about.html src/pages/preview.html --dist-dir ../server/wwwroot"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/file-saver": "^2.0.7",
     "parcel": "^2.16.4",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5"
   }
 }
